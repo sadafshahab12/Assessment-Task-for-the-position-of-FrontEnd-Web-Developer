@@ -1,8 +1,7 @@
-import React from "react";
-import { CiLinkedin, CiLock } from "react-icons/ci";
+
+import {  CiLock } from "react-icons/ci";
 import { FaGithub, FaUser } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { GoStack } from "react-icons/go";
 import { HiOutlineMail } from "react-icons/hi";
 import { IoLockClosed } from "react-icons/io5";
 
