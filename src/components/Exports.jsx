@@ -41,6 +41,7 @@ import { GoProjectRoadmap, GoStack } from "react-icons/go";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { RiTailwindCssLine } from "react-icons/ri";
 import { SiFirebase } from "react-icons/si";
+import ScrollToTop from "./ScrollToTop";
 export {
   BrowserRouter,
   Route,
@@ -88,4 +89,5 @@ export {
   FaReact,
   Navbar,
   useLocation,
+  ScrollToTop,
 };

@@ -1,73 +1,54 @@
-import React from "react";
-
-const projects = [
-  {
-    name: "Mobile App for Grocery Delivery",
-    role: "Frontend Developer",
-    status: "In Progress",
-    client: "John Doe",
-    budget: "$1200",
-    deadline: "Sept 15, 2025",
-  },
-  {
-    name: "Portfolio Website",
-    role: "Fullstack Developer",
-    status: "Completed",
-    client: "Sarah Lee",
-    budget: "$800",
-    deadline: "May 22, 2025",
-  },
-  {
-    name: "Booking System UI",
-    role: "UI Designer",
-    status: "Paused",
-    client: "Rachel Smith",
-    budget: "$950",
-    deadline: "Oct 3, 2025",
-  },
-];
+import { projects } from "../../../data/project";
 
 const statusColor = {
-  Completed: "text-green-600",
-  "In Progress": "text-blue-600",
-  Paused: "text-yellow-600",
+  Completed: "bg-green-700",
+  "In Progress": "bg-blue-700",
+  Pending: "bg-red-700",
 };
 
 const Projects = () => {
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-8">
       <h1 className="text-3xl font-semibold mb-6">My Projects</h1>
-      <div className="overflow-x-auto">
-        <table className="w-full border border-gray-300 text-left">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="px-4 py-2 border">Project Name</th>
-              <th className="px-4 py-2 border">Role</th>
-              <th className="px-4 py-2 border">Status</th>
-              <th className="px-4 py-2 border">Client</th>
-              <th className="px-4 py-2 border">Budget</th>
-              <th className="px-4 py-2 border">Deadline</th>
-            </tr>
-          </thead>
-          <tbody>
-            {projects.map((project, index) => (
-              <tr key={index} className="hover:bg-gray-50">
-                <td className="px-4 py-2 border">{project.name}</td>
-                <td className="px-4 py-2 border">{project.role}</td>
-                <td
-                  className={`px-4 py-2 border font-semibold ${
-                    statusColor[project.status]
-                  }`}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project, index) => (
+          <div key={index} className="flip-card">
+            <div className="flip-card-inner">
+              {/* Front of Card */}
+              <div className="flip-card-front project-card p-4 sm:p-6 rounded shadow-sm shadow-secondary">
+                <h2 className="text-lg sm:text-xl font-semibold mb-2">{project.name}</h2>
+                <p className="text-sm text-gray-700 ">
+                  Deadline: {project.deadline}
+                </p>
+                <p
+                  className={`mt-2 font-medium widgets-tag ${statusColor[project.status]}`}
                 >
                   {project.status}
-                </td>
-                <td className="px-4 py-2 border">{project.client}</td>
-                <td className="px-4 py-2 border">{project.budget}</td>
-                <td className="px-4 py-2 border">{project.deadline}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                </p>
+              </div>
+
+              {/* Back of Card */}
+              <div className="flip-card-back p-4 sm:p-6 rounded shadow-sm shadow-secondary space-y-2 bg-primary">
+                <h2 className="text-lg sm:text-xl font-semibold mb-2">{project.name}</h2>
+                <p className="text-sm">
+                  <strong>Role:</strong> {project.role}
+                </p>
+                <p className="text-sm">
+                  <strong>Status:</strong> {project.status}
+                </p>
+                <p className="text-sm">
+                  <strong>Client:</strong> {project.client}
+                </p>
+                <p className="text-sm">
+                  <strong>Budget:</strong> {project.budget}
+                </p>
+                <p className="text-sm">
+                  <strong>Deadline:</strong> {project.deadline}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

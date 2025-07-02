@@ -14,30 +14,34 @@ import {
 
 const DashboardLayout = () => {
   const navigate = useNavigate();
-  const [response, setResponse] = useState({});
   const [char, setChar] = useState("");
+  const [titleCase, setTitleCase] = useState("");
+  const developer = JSON.parse(localStorage.getItem("developerLoggedIn")) || {};
+  useEffect(() => {
+    const firstChar = developer.fullName.split()[0].charAt(0).toUpperCase();
+    const capitalize = developer.fullName
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+    setChar(firstChar);
+    setTitleCase(capitalize);
+  });
+
   const handleLogout = () => {
     localStorage.removeItem("developerLoggedIn");
     navigate("/developer/login");
   };
-  useEffect(() => {
-    const developerData = localStorage.getItem("developerLoggedIn");
-    const response = JSON.parse(developerData);
-    setResponse(response || {});
-    const char = response.fullName.split("")[0].toUpperCase();
-    setChar(char);
-  }, []);
 
   return (
     <div className="flex min-h-screen">
       <div className="flex flex-col items-center p-2 sm:p-4 py-6 bg-secondary max-w-[60px] md:max-w-[300px] w-full ">
         <div className="flex flex-col md:flex-row  justify-center items-center gap-4 mb-8 w-full">
-          <h1 className="h-11 sm:h-14 max-w-14 w-full flex justify-center items-center rounded-full text-2xl sm:text-4xl bg-primary">
+          <h1 className="h-12 w-12  flex justify-center items-center rounded-full text-4xl bg-primary">
             {char}
           </h1>
-          <div className="text-center md:block hidden text-primary">
-            <h2 className="text-xl font-bold">{response.fullName}</h2>
-            <p className="text-sm">Tech Stack: {response.techStack}</p>
+          <div className="md:block hidden text-primary">
+            <h2 className="text-xl font-bold">{titleCase}</h2>
+            <p className="text-sm">Tech Stack: {developer.techStack}</p>
           </div>
         </div>
 
@@ -48,7 +52,7 @@ const DashboardLayout = () => {
           >
             <HiOutlineHome size={20} />
             <p className="md:block hidden">Home</p>
-            <ToolTip content={"Dashboard"} />
+            <ToolTip content={"Go To Home"} />
           </Link>
           <Link
             to={"/developer/dashboard"}
@@ -84,7 +88,7 @@ const DashboardLayout = () => {
           </button>
         </nav>
       </div>
-      <div className="w-full p-2 sm:p-5">
+      <div className="w-full p-3 sm:p-5 bg-gray-100">
         <Outlet />
       </div>
     </div>

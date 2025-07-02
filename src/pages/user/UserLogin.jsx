@@ -5,7 +5,7 @@ import { IoLockClosed } from "react-icons/io5";
 
 const UserLogin = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 py-40 sm:py-50 px-5 sm:px-10  ">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 py-40 sm:py-50 px-5 sm:px-10 auth-bg ">
       <div className="space-y-4 sm:space-y-8 max-w-[450px] w-full shadow p-4 sm:p-8 rounded-2xl">
         <h1 className="text-center login-heading">User Login</h1>
         <p className="text-sm sm:text-xl font-normal text-center">
@@ -24,9 +24,9 @@ const UserLogin = () => {
             Login as User{" "}
           </button>
           <p className="text-sm text-center text-gray-600 border-b border-gray-300 py-6">
-            Don't have an account? <a href="/user/signup">Sign Up</a>
+            Don't have an account? <a href="/user/signup" className="underline underline-offset-4">Sign Up</a>
           </p>
-          <button className="rounded-full text-sm bg-primary w-full py-4 relative">
+          <button className="rounded-full text-sm bg-primary w-full py-4 relative shadow-md shadow-secondary">
             {" "}
             <FcGoogle
               size={30}

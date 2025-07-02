@@ -79,7 +79,7 @@ const DeveloperSignup = () => {
     navigate("/developer/login");
   };
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 py-40 sm:py-50 px-5 sm:px-10  ">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 py-40 sm:py-50 px-5 sm:px-10 auth-bg ">
       <div className="space-y-4 sm:space-y-8 max-w-[600px] w-full shadow p-4 sm:p-8 rounded-2xl">
         <h1 className="text-center login-heading">Join as a Developer</h1>
         <p className="text-sm sm:text-xl font-normal text-center">
@@ -97,7 +97,9 @@ const DeveloperSignup = () => {
               onChange={handleChange}
             />
             {error.fullName && (
-              <p className="text-red-500 text-xs mt-1">{error.fullName}</p>
+              <p className="text-red-600 text-xs mt-1 pl-5 py-2">
+                {error.fullName}
+              </p>
             )}
           </div>
           <div className="relative">
@@ -111,7 +113,9 @@ const DeveloperSignup = () => {
               onChange={handleChange}
             />
             {error.email && (
-              <p className="text-red-500 text-xs mt-1">{error.email}</p>
+              <p className="text-red-600 text-xs mt-1 pl-5 py-2">
+                {error.email}
+              </p>
             )}
           </div>
           <div className="relative">
@@ -125,7 +129,9 @@ const DeveloperSignup = () => {
               onChange={handleChange}
             />
             {error.password && (
-              <p className="text-red-500 text-xs mt-1">{error.password}</p>
+              <p className="text-red-600 text-xs mt-1 pl-5 py-2">
+                {error.password}
+              </p>
             )}
           </div>
           <div className="relative">
@@ -139,7 +145,7 @@ const DeveloperSignup = () => {
               onChange={handleChange}
             />
             {error.confirmPassword && (
-              <p className="text-red-500 text-xs mt-1">
+              <p className="text-red-600 text-xs mt-1 pl-5 py-2">
                 {error.confirmPassword}
               </p>
             )}
@@ -155,7 +161,9 @@ const DeveloperSignup = () => {
               onChange={handleChange}
             />
             {error.techStack && (
-              <p className="text-red-500 text-xs mt-1">{error.techStack}</p>
+              <p className="text-red-600 text-xs mt-1 pl-5 py-2">
+                {error.techStack}
+              </p>
             )}
           </div>
           <div className="relative">
@@ -169,7 +177,9 @@ const DeveloperSignup = () => {
               onChange={handleChange}
             />
             {error.linkedInUrl && (
-              <p className="text-red-500 text-xs mt-1">{error.linkedInUrl}</p>
+              <p className="text-red-600 text-xs mt-1 pl-5 py-2">
+                {error.linkedInUrl}
+              </p>
             )}
           </div>
           <div className="relative">
@@ -183,14 +193,19 @@ const DeveloperSignup = () => {
               onChange={handleChange}
             />
             {error.githubUrl && (
-              <p className="text-red-500 text-xs mt-1">{error.githubUrl}</p>
+              <p className="text-red-600 text-xs mt-1 pl-5 py-2">
+                {error.githubUrl}
+              </p>
             )}
           </div>
           <button type="submit" className="auth-button" onClick={handleSubmit}>
             Create Developer Account{" "}
           </button>
-          <p className="text-sm text-center text-gray-600 border-b border-gray-300 py-6">
-            Already have an account? <a href="/developer/login">Login</a>
+          <p className="text-sm text-center text-gray-800 border-b border-gray-300 py-6">
+            Already have an account?{" "}
+            <a href="/developer/login" className="underline underline-offset-4">
+              Login
+            </a>
           </p>
           <button className="rounded-full text-sm bg-primary w-full py-4 relative mt-4">
             {" "}
@@ -200,7 +215,7 @@ const DeveloperSignup = () => {
             />
             Continue with Google
           </button>
-          <button className="rounded-full text-sm bg-slate-800 w-full py-4 relative text-primary">
+          <button className="rounded-full text-sm bg-slate-800 w-full py-4 relative text-primary shadow-md shadow-primary">
             {" "}
             <FaGithub
               size={30}

@@ -13,10 +13,12 @@ import {
   Projects,
   Route,
   Routes,
+  ScrollToTop,
   Toaster,
   UserLogin,
   UserSignup,
 } from "./components/Exports";
+
 function App() {
   return (
     <div className="font-AlbertSans">
@@ -36,6 +38,7 @@ function App() {
         }}
       />
       <BrowserRouter>
+        <ScrollToTop />
         <LayoutWrapper>
           <CursorTrail />
           <Routes>

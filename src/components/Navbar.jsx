@@ -19,7 +19,7 @@ const Navbar = () => {
   };
   return (
     <header className="p-5 fixed w-full text-center z-10">
-      <nav className=" bg-slate-900 text-white p-2 max-w-7xl mx-auto rounded-full   ">
+      <nav className="bg-slate-900 text-white p-2 max-w-7xl mx-auto rounded-full">
         <div className="border border-primary p-1 rounded-full">
           <div className="flex justify-between items-center border-3 border-secondary py-4 px-5 sm:px-10 md:px-20 rounded-full ">
             <div className="logo text-xl sm:text-2xl font-bold">ConnectDev</div>
@@ -49,15 +49,12 @@ const Navbar = () => {
             </div>
             {/* mobile responsive  */}
             <div
-              className={`absolute text-sm bg-slate-700 max-w-[100%] w-full left-0 min-h-70 top-32 py-10 rounded-xl flex flex-col gap-10 items-center duration-300 transition-all ease-in origin-top md:hidden  ${
+              className={`absolute text-sm bg-slate-900 max-w-[100%] w-full left-0 min-h-70 top-32 py-10 rounded-xl flex flex-col gap-10 items-center duration-300 transition-all ease-in origin-top md:hidden  ${
                 isOpen ? "scale-92  opacity-100" : "scale-0 opcaity-0 "
               }`}
             >
               <Link to={"/"} className="cursor-pointer">
                 Home
-              </Link>
-              <Link to={"/get-started"} className="cursor-pointer">
-                Get Started
               </Link>
               <Link to={"/get-started"} className="cursor-pointer">
                 Get Started

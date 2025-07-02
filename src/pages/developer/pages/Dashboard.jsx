@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   FaNodeJs,
   FaReact,
@@ -6,14 +7,23 @@ import {
 } from "../../../components/Exports";
 
 const Dashboard = () => {
+  const [titleCase, setTitleCase] = useState("");
   const developer = JSON.parse(localStorage.getItem("developerLoggedIn")) || {};
+  useEffect(() => {
+    const capitalize = developer.fullName
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+    setTitleCase(capitalize);
+  });
+
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <div className="pb-5 space-y-3">
         <h1 className="flex flex-col">
           <span className="text-lg font-light">Welcome to Dashboard,</span>{" "}
           <span className="text-3xl sm:text-5xl md:text-6xl">
-            {developer.fullName || "Developer"}
+            {titleCase || "Developer"}
           </span>
         </h1>
         <p className="text-sm bg-slate-800 text-white w-max px-4 py-1  rounded-full">
@@ -31,9 +41,25 @@ const Dashboard = () => {
           <p className="border-t border-gray-800 my-4"></p>
           <p className="text-sm">Deadline: Aug 5, 2025</p>
         </div>
-        <div className="widgets">
-          <h1>5</h1>
-          <p className="text-lg">Active Projects</p>
+        <div className="widgets grid grid-cols-2 gap-6 ">
+          <div className="space-y-2 justify-self-center text-center">
+            <h2 className="text-4xl font-bold">3</h2>
+            <p className="widgets-tag text-[10px] px-2">Active Projects</p>
+          </div>
+          <div className="space-y-2 justify-self-center text-center">
+            <h2 className="text-4xl font-bold">2</h2>
+            <p className="widgets-tag text-[10px] px-2">Completed Projects</p>
+          </div>
+          <div className="space-y-2 justify-self-center text-center">
+            <h2 className="text-4xl font-bold">2</h2>
+            <p className="widgets-tag text-[10px] px-2">Pending Projects</p>
+          </div>
+          <div className="relative w-20 sm:w-24 h-20 sm:h-24 rounded-full bg-gray-200 justify-self-center">
+            <div className="absolute inset-0 rounded-full half-circle"></div>
+            <div className="absolute inset-2 bg-white rounded-full flex items-center justify-center">
+              <h1 className="text-xl sm:text-2xl text-gray-800">28%</h1>
+            </div>
+          </div>
         </div>
         <div className="widgets">
           {" "}
@@ -47,7 +73,7 @@ const Dashboard = () => {
         </div>
         <div className="widgets">
           <p className="widgets-tag">Upcoming Deadline</p>
-          <p className="border border-gray-300 mx-4 my-3"></p>
+          <p className="border-t border-gray-800 my-4"></p>
           <p className="text-sm">Submit UI for “Fitness App” (Jul 5, 2025)</p>
           <p className="text-sm">
             API Integration for “E-commerce Site” (Jul 7, 2025)
@@ -86,7 +112,6 @@ const Dashboard = () => {
           <p className="text-sm">Total Earnings: $14,200</p>
         </div>
       </div>
-      {/* Add more dashboard content as needed */}
     </div>
   );
 };

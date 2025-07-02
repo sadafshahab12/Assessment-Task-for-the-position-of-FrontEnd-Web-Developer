@@ -20,7 +20,7 @@ const GetStarted = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-10 sm:pt-20 max-w-6xl mx-auto">
           {/* Developer Card */}
-          <div className="relative group border rounded-lg bg-primary p-6 shadow-md flex flex-col items-center gap-4 cursor-pointer transition-transform hover:scale-[1.02] card">
+          <div className="group border rounded-lg bg-primary p-6 shadow-md flex flex-col items-center gap-4 cursor-pointer transition-transform hover:scale-[1.02] card">
             <img
               src="/developer1.png"
               alt="Developer"
@@ -46,7 +46,7 @@ const GetStarted = () => {
           </div>
 
           {/* User Card */}
-          <div className="relative group border rounded-lg bg-white p-6 shadow-md flex flex-col items-center gap-4 cursor-pointer transition-transform hover:scale-[1.02]">
+          <div className=" group border rounded-lg bg-white p-6 shadow-md flex flex-col items-center gap-4 cursor-pointer transition-transform hover:scale-[1.02] card">
             <img
               src="/user.png"
               alt="User"

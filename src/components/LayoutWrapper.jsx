@@ -1,18 +1,20 @@
 import { useLocation, Navbar } from "./Exports";
+import Footer from "./Footer";
 
 const LayoutWrapper = ({ children }) => {
   const location = useLocation();
 
-  const hideNavbarPaths = [
+  const hidePaths = [
     "/developer/dashboard",
     "/developer/profile",
     "/developer/projects",
   ];
-  const shouldHideNavbar = hideNavbarPaths.includes(location.pathname);
+  const shouldHideComponent = hidePaths.includes(location.pathname);
   return (
     <div>
-      {!shouldHideNavbar && <Navbar />}
+      {!shouldHideComponent && <Navbar />}
       {children}
+      {!shouldHideComponent && <Footer />}
     </div>
   );
 };
