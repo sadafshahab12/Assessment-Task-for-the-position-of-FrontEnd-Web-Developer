@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { CiLock } from "react-icons/ci";
 import { FaGithub, FaUser } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { HiOutlineMail } from "react-icons/hi";
-import { IoLockClosed } from "react-icons/io5";
+import PasswordInput from "../../components/PasswordInput";
 
 const UserSignup = () => {
   useEffect(() => {
@@ -25,19 +24,11 @@ const UserSignup = () => {
             <HiOutlineMail size={22} className="input-icon" />
             <input type="email" placeholder="Email" className="input" />
           </div>
-          <div className="relative">
-            <IoLockClosed size={22} className="input-icon" />
-            <input type="password" placeholder="Password" className="input" />
-          </div>
-          <div className="relative">
-            <CiLock size={22} className="input-icon" />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              className="input"
-            />
-          </div>
-
+          <PasswordInput name={"password"} placeholder={"Password"} />
+          <PasswordInput
+            name={"confirmPassword"}
+            placeholder={"Confirm Password"}
+          />
           <button type="submit" className="auth-button">
             Create User Account{" "}
           </button>

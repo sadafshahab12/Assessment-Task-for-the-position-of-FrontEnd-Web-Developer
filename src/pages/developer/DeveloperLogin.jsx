@@ -1,12 +1,13 @@
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import {
   FcGoogle,
   HiOutlineMail,
-  IoLockClosed,
   toast,
   useEffect,
   useNavigate,
   useState,
 } from "../../components/Exports";
+import PasswordInput from "../../components/PasswordInput";
 
 const DeveloperLogin = () => {
   useEffect(() => {
@@ -64,17 +65,12 @@ const DeveloperLogin = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="relative">
-            <IoLockClosed size={22} className="input-icon" />
-            <input
-              type="password"
-              placeholder="Password"
-              className="input"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-          </div>
+          <PasswordInput
+            placeholder={"Password"}
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+          />
           <button type="submit" className="auth-button" onClick={handleSubmit}>
             Login as Developer{" "}
           </button>

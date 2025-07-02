@@ -1,24 +1,21 @@
-import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import {
   CiLinkedin,
-  CiLock,
   FaGithub,
   FaUser,
   FcGoogle,
   GoStack,
   HiOutlineMail,
-  IoLockClosed,
   toast,
   useEffect,
   useNavigate,
   useState,
 } from "../../components/Exports";
+import PasswordInput from "../../components/PasswordInput";
 const DeveloperSignup = () => {
   useEffect(() => {
     document.title = "Dev Sign Up | Connect Dev";
   }, []);
   const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
   const [error, setErrors] = useState({});
   const [formData, setFormData] = useState({
     fullName: "",
@@ -126,29 +123,13 @@ const DeveloperSignup = () => {
               </p>
             )}
           </div>
-          <div className="relative">
-            <IoLockClosed size={22} className="input-icon" />
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              className="input"
+          <div>
+            <PasswordInput
+              placeholder={"Password"}
               name="password"
               value={formData.password}
               onChange={handleChange}
             />
-            {showPassword ? (
-              <IoMdEye
-                size={22}
-                className="input-icon right-5 left-auto cursor-pointer"
-                onClick={() => setShowPassword(!showPassword)}
-              />
-            ) : (
-              <IoMdEyeOff
-                size={22}
-                className="input-icon right-5 left-auto cursor-pointer"
-                onClick={() => setShowPassword(!showPassword)}
-              />
-            )}
             {error.password && (
               <p className="text-red-600 text-xs mt-1 pl-5 py-2">
                 {error.password}
@@ -156,28 +137,12 @@ const DeveloperSignup = () => {
             )}
           </div>
           <div className="relative">
-            <CiLock size={22} className="input-icon" />
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Confirm Password"
-              className="input"
+            <PasswordInput
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
+              placeholder={"Confirm Password"}
             />
-            {showPassword ? (
-              <IoMdEye
-                size={22}
-                className="input-icon right-5 left-auto cursor-pointer"
-                onClick={() => setShowPassword(!showPassword)}
-              />
-            ) : (
-              <IoMdEyeOff
-                size={22}
-                className="input-icon right-5 left-auto cursor-pointer"
-                onClick={() => setShowPassword(!showPassword)}
-              />
-            )}
             {error.confirmPassword && (
               <p className="text-red-600 text-xs mt-1 pl-5 py-2">
                 {error.confirmPassword}

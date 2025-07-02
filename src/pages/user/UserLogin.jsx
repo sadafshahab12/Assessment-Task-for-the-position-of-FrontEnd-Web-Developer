@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { HiOutlineMail } from "react-icons/hi";
-import { IoLockClosed } from "react-icons/io5";
+import PasswordInput from "../../components/PasswordInput";
 
 const UserLogin = () => {
   useEffect(() => {
@@ -19,10 +19,9 @@ const UserLogin = () => {
             <HiOutlineMail size={22} className="input-icon" />
             <input type="email" placeholder="Email" className="input" />
           </div>
-          <div className="relative">
-            <IoLockClosed size={22} className="input-icon" />
-            <input type="password" placeholder="Password" className="input" />
-          </div>
+
+          <PasswordInput name={"password"} placeholder={"Password"} />
+
           <button type="submit" className="auth-button ">
             Login as User{" "}
           </button>
