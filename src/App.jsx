@@ -61,8 +61,6 @@ function App() {
               <Route path="/developer/profile" element={<Profile />} />
               <Route path="/developer/projects" element={<Projects />} />
             </Route>
-            {/* Add more routes as needed */}
-            <Route path="*" element={<div>404 Not Found</div>} />
           </Routes>
         </LayoutWrapper>
       </BrowserRouter>
