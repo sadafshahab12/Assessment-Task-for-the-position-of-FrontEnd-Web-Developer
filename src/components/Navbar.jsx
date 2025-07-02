@@ -59,24 +59,38 @@ const Navbar = () => {
             </div>
             {/* mobile responsive  */}
             <div
-              className={`absolute text-sm bg-slate-900 max-w-[100%] w-full left-0 min-h-70 top-32 py-10 rounded-xl flex flex-col gap-10 items-center duration-300 transition-all ease-in origin-top md:hidden  ${
+              className={`absolute text-sm bg-slate-900 max-w-[100%] w-full left-0 top-35 p-2 rounded-xl  duration-300 transition-all ease-in origin-top md:hidden  ${
                 isOpen ? "scale-92  opacity-100" : "scale-0 opcaity-0 "
               }`}
             >
-              <Link to={"/"} className="cursor-pointer">
-                Home
-              </Link>
-              <Link to={"/get-started"} className="cursor-pointer">
-                Get Started
-              </Link>
-              {isLoggedIn && (
-                <div className="flex flex-col items-center gap-10">
-                  <Link to={"/developer/dashboard"}>Dashboard</Link>
-                  <button onClick={handleLogout} className="cursor-pointer">
-                    Logout
-                  </button>
+              <div className="border-1 border-primary p-1 w-full rounded-xl h-full">
+                <div className="border-4 border-secondary p-10 w-full rounded-xl h-full flex flex-col gap-10 items-center min-h-70  ">
+                  <Link
+                    to={"/"}
+                    className="cursor-pointer"
+                    onClick={handleToggle}
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to={"/get-started"}
+                    className="cursor-pointer"
+                    onClick={handleToggle}
+                  >
+                    Get Started
+                  </Link>
+                  {isLoggedIn && (
+                    <div className="flex flex-col items-center gap-10">
+                      <Link to={"/developer/dashboard"} onClick={handleToggle}>
+                        Dashboard
+                      </Link>
+                      <button onClick={handleLogout} className="cursor-pointer">
+                        Logout
+                      </button>
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>
