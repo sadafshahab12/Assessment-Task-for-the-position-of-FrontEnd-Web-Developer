@@ -1,21 +1,25 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
-import HomePage from "./pages/Home";
-import GetStarted from "./pages/GetStarted";
-import DeveloperLogin from "./pages/developer/DeveloperLogin";
-import DeveloperSignup from "./pages/developer/DeveloperSignup";
-import UserLogin from "./pages/user/UserLogin";
-import UserSignup from "./pages/user/UserSignup";
-import LayoutWrapper from "./components/LayoutWrapper";
-import DashboardLayout from "./pages/developer/DashboardLayout";
-import Dashboard from "./pages/developer/pages/Dashboard";
-import Profile from "./pages/developer/pages/Profile";
-import Projects from "./pages/developer/pages/Projects";
-import PrivateRoute from "./components/PrivateRoute";
-
+import {
+  BrowserRouter,
+  CursorTrail,
+  Dashboard,
+  DashboardLayout,
+  DeveloperLogin,
+  DeveloperSignup,
+  GetStarted,
+  HomePage,
+  LayoutWrapper,
+  PrivateRoute,
+  Profile,
+  Projects,
+  Route,
+  Routes,
+  Toaster,
+  UserLogin,
+  UserSignup,
+} from "./components/Exports";
 function App() {
   return (
-    <div className="font-Gilroy">
+    <div className="font-AlbertSans">
       <Toaster
         position="top-center"
         duration={3000}
@@ -33,6 +37,7 @@ function App() {
       />
       <BrowserRouter>
         <LayoutWrapper>
+          <CursorTrail />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/get-started" element={<GetStarted />} />

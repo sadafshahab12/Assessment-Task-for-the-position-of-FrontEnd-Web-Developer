@@ -1,5 +1,4 @@
-import { useNavigate } from "react-router-dom";
-import ToolTip from "../components/ToolTip";
+import { ToolTip, useNavigate } from "../components/Exports";
 
 const GetStarted = () => {
   const navigate = useNavigate();
@@ -33,7 +32,10 @@ const GetStarted = () => {
             <p className="text-center text-gray-600">
               Ready to share your skills and grow your network?
             </p>
-            <button className="button mt-2" onClick={() => navigate("/developer/login")}>
+            <button
+              className="button mt-2"
+              onClick={() => navigate("/developer/login")}
+            >
               I’m a Developer
             </button>
             <ToolTip
@@ -56,7 +58,12 @@ const GetStarted = () => {
             <p className="text-center text-gray-600  ">
               Find the perfect developer to bring your ideas to life.
             </p>
-            <button className="button mt-2" onClick={() => navigate("/user/login")}>I’m a User</button>
+            <button
+              className="button mt-2"
+              onClick={() => navigate("/user/login")}
+            >
+              I’m a User
+            </button>
             <ToolTip
               content={
                 "Select this if you want to explore and hire top developers."

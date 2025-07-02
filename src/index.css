@@ -1,47 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #f1bce1;
-  --color-secondary: #418cc2;
+  --color-primary: #a0e4d0;
+  --color-secondary: #155e64;
+  --font-AlbertSans: "Albert Sans", sans-serif;
 }
-/* 
-.heading {
-  background-image: url("/heading3.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-} */
-
-@font-face {
-  font-family: Gilroy;
-  src: url(/fonts/Gilroy-Regular.woff) format("woff");
-  font-weight: 300 700;
-  font-style: normal;
-  font-display: swap;
-}
-/* .hero-liquid {
-  background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #facc15);
-  background-size: 800% 800%;
-  animation: gradientFlow 20s ease infinite;
-}
-
-@keyframes gradientFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-} */
 
 @layer base {
-  h1,
-  h1 > span {
+  h1 {
     @apply text-5xl sm:text-6xl md:text-7xl font-bold;
   }
 }
@@ -62,15 +28,45 @@
     @apply absolute top-3 left-6 text-slate-500;
   }
   .auth-button {
-    @apply block mx-auto p-4 bg-slate-800 text-primary w-full cursor-pointer text-sm  shadow-md shadow-primary rounded-full transition-all ease-in duration-200 ;
+    @apply block mx-auto p-4 bg-slate-800 text-primary w-full cursor-pointer text-sm  shadow-md shadow-primary rounded-full transition-all ease-in duration-200;
   }
   .dashboard-link {
-    @apply  p-2 md:p-4 bg-slate-800 text-primary w-auto md:w-full cursor-pointer text-sm  shadow-md shadow-primary rounded-full transition-all ease-in duration-200 ;
+    @apply p-2 md:p-4 bg-slate-800 text-primary w-auto md:w-full cursor-pointer text-sm  shadow-md shadow-primary rounded-full transition-all ease-in duration-200;
   }
-  .widgets{
-    @apply min-h-50 h-full bg-primary rounded-2xl p-5 space-y-4
+  .widgets {
+    @apply min-h-50 h-full bg-primary rounded-2xl p-5 space-y-4;
   }
-  .widgets-tag{
-    @apply text-[10px] sm:text-[12px] bg-secondary w-max px-4 py-1 rounded-full text-white
+  .widgets-tag {
+    @apply text-[10px] sm:text-[12px] bg-secondary w-max px-4 py-1 rounded-full text-white;
   }
+}
+
+.star {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, #ffffff, #00ffff);
+  opacity: 0.8;
+  animation: sparkle 0.8s ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.5) translateY(-20px);
+    opacity: 0;
+  }
+}
+
+.image {
+  background: url("/bg-1.jpg");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
 }

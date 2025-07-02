@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import toast from "react-hot-toast";
-import { FcGoogle } from "react-icons/fc";
-import { HiOutlineMail } from "react-icons/hi";
-import { IoLockClosed } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+import {
+  FcGoogle,
+  HiOutlineMail,
+  IoLockClosed,
+  toast,
+  useNavigate,
+  useState,
+} from "../../components/Exports";
 
 const DeveloperLogin = () => {
   const [formData, setFormData] = useState({

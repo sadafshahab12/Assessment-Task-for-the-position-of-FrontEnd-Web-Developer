@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import { CiLinkedin, CiLock } from "react-icons/ci";
-import { FaGithub, FaUser } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-import { GoStack } from "react-icons/go";
-import { HiOutlineMail } from "react-icons/hi";
-import { IoLockClosed } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
-
+import {
+  CiLinkedin,
+  CiLock,
+  FaGithub,
+  FaUser,
+  FcGoogle,
+  GoStack,
+  HiOutlineMail,
+  IoLockClosed,
+  useNavigate,
+  useState,
+} from "../../components/Exports";
 const DeveloperSignup = () => {
   const navigate = useNavigate();
   const [error, setErrors] = useState({});

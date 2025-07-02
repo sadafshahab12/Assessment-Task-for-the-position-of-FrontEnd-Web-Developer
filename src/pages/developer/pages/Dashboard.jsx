@@ -1,8 +1,9 @@
-import React from "react";
-import { DiFirebase } from "react-icons/di";
-import { FaNode, FaNodeJs, FaReact } from "react-icons/fa";
-import { RiTailwindCssLine } from "react-icons/ri";
-import { SiFirebase } from "react-icons/si";
+import {
+  FaNodeJs,
+  FaReact,
+  RiTailwindCssLine,
+  SiFirebase,
+} from "../../../components/Exports";
 
 const Dashboard = () => {
   const developer = JSON.parse(localStorage.getItem("developerLoggedIn")) || {};
@@ -20,7 +21,7 @@ const Dashboard = () => {
         </p>
       </div>
       <div className="border-t pt-6 w-full border-gray-300"></div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div className="widgets">
           <p className="widgets-tag">Current Project</p>
           <h2 className="text-xl sm:text-2xl font-bold">
