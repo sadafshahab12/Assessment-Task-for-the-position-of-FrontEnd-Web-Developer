@@ -4,9 +4,17 @@ const Dashboard = () => {
   const developer = JSON.parse(localStorage.getItem("developerLoggedIn")) || {};
   return (
     <div>
-      <h1>Welcome to your Dashboard, {developer.fullName || "Developer"}</h1>
-      <p>Your Tech Stack: {developer.techStack || "Not specified"}</p>
-      <p>Email: {developer.email || "Not specified"}</p>
+      <div>
+        <h1 className="flex flex-col">
+          <span className="text-lg font-light">Welcome to Dashboard,</span>{" "}
+          <span className="text-5xl">{developer.fullName || "Developer"}</span>
+        </h1>
+      </div>
+<div>
+  <div className="h-50 bg-primary">
+    5 Project
+  </div>
+</div>
       {/* Add more dashboard content as needed */}
     </div>
   );
