@@ -2,13 +2,21 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white p-2 rounded-tl-2xl rounded-tr-2xl">
+    <footer className="bg-gray-900 text-white p-2">
       <div className="border-2 border-secondary p-2 rounded-2xl">
         <div className="border-3 border-primary py-10 px-6 rounded-2xl">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {/* Brand */}
             <div>
-              <h2 className="text-2xl font-bold text-blue-400">ConnectDev</h2>
+              <h2 className="text-2xl font-bold text-blue-400">
+                <img
+                  width={1000}
+                  height={1000}
+                  src="/normal.png"
+                  alt="connect-dev-logo"
+                  className="w-28 h-28 object-cover"
+                />
+              </h2>
               <p className="mt-3 text-sm text-gray-400">
                 Empowering developers and users to create the next era of
                 technology.

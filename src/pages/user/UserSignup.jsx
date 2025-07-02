@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { CiLock } from "react-icons/ci";
 import { FaGithub, FaUser } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
@@ -5,6 +6,9 @@ import { HiOutlineMail } from "react-icons/hi";
 import { IoLockClosed } from "react-icons/io5";
 
 const UserSignup = () => {
+  useEffect(() => {
+    document.title = "User Sign Up | Connect Dev";
+  }, []);
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 py-40 sm:py-50 px-5 sm:px-10 auth-bg">
       <div className="space-y-4 sm:space-y-8 max-w-[600px] w-full shadow p-4 sm:p-8 rounded-2xl">

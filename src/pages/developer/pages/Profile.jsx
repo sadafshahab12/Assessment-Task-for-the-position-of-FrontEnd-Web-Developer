@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 const Profile = () => {
+  useEffect(() => {
+    document.title = "Profile | Connect Dev";
+  }, []);
   const [char, setChar] = useState("");
   const [titleCase, setTitleCase] = useState("");
   const developer = JSON.parse(localStorage.getItem("developerLoggedIn")) || {};

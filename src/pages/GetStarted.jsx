@@ -1,6 +1,9 @@
-import { ToolTip, useNavigate } from "../components/Exports";
+import { ToolTip, useEffect, useNavigate } from "../components/Exports";
 
 const GetStarted = () => {
+  useEffect(() => {
+    document.title = "Get Started | Connect Dev";
+  }, []);
   const navigate = useNavigate();
   return (
     <section className="min-h-screen bg-primary py-40 sm:py-50 get-started-bg">

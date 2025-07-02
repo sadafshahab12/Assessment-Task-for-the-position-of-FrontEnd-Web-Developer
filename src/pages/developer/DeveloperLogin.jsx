@@ -3,11 +3,15 @@ import {
   HiOutlineMail,
   IoLockClosed,
   toast,
+  useEffect,
   useNavigate,
   useState,
 } from "../../components/Exports";
 
 const DeveloperLogin = () => {
+  useEffect(() => {
+    document.title = "Dev Login | Connect Dev";
+  }, []);
   const [formData, setFormData] = useState({
     email: "",
     password: "",

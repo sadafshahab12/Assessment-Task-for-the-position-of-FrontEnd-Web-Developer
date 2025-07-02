@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { projects } from "../../../data/project";
 
 const statusColor = {
@@ -7,6 +8,9 @@ const statusColor = {
 };
 
 const Projects = () => {
+  useEffect(() => {
+    document.title = "Projects | Connect Dev";
+  }, []);
   return (
     <div className="p-4 sm:p-8">
       <h1 className="text-3xl font-semibold mb-6">My Projects</h1>
@@ -16,12 +20,16 @@ const Projects = () => {
             <div className="flip-card-inner">
               {/* Front of Card */}
               <div className="flip-card-front project-card p-4 sm:p-6 rounded shadow-sm shadow-secondary">
-                <h2 className="text-lg sm:text-xl font-semibold mb-2">{project.name}</h2>
+                <h2 className="text-lg sm:text-xl font-semibold mb-2">
+                  {project.name}
+                </h2>
                 <p className="text-sm text-gray-700 ">
                   Deadline: {project.deadline}
                 </p>
                 <p
-                  className={`mt-2 font-medium widgets-tag ${statusColor[project.status]}`}
+                  className={`mt-2 font-medium widgets-tag ${
+                    statusColor[project.status]
+                  }`}
                 >
                   {project.status}
                 </p>
@@ -29,7 +37,9 @@ const Projects = () => {
 
               {/* Back of Card */}
               <div className="flip-card-back p-4 sm:p-6 rounded shadow-sm shadow-secondary space-y-2 bg-primary">
-                <h2 className="text-lg sm:text-xl font-semibold mb-2">{project.name}</h2>
+                <h2 className="text-lg sm:text-xl font-semibold mb-2">
+                  {project.name}
+                </h2>
                 <p className="text-sm">
                   <strong>Role:</strong> {project.role}
                 </p>

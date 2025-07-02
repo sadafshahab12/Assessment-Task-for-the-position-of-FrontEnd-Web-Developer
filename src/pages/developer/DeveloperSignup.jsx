@@ -1,3 +1,4 @@
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import {
   CiLinkedin,
   CiLock,
@@ -7,11 +8,17 @@ import {
   GoStack,
   HiOutlineMail,
   IoLockClosed,
+  toast,
+  useEffect,
   useNavigate,
   useState,
 } from "../../components/Exports";
 const DeveloperSignup = () => {
+  useEffect(() => {
+    document.title = "Dev Sign Up | Connect Dev";
+  }, []);
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setErrors] = useState({});
   const [formData, setFormData] = useState({
     fullName: "",
@@ -76,6 +83,7 @@ const DeveloperSignup = () => {
       linkedInUrl: "",
       githubUrl: "",
     });
+    toast.success("Developer Account Created Successfully");
     navigate("/developer/login");
   };
   return (
@@ -121,13 +129,26 @@ const DeveloperSignup = () => {
           <div className="relative">
             <IoLockClosed size={22} className="input-icon" />
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               className="input"
               name="password"
               value={formData.password}
               onChange={handleChange}
             />
+            {showPassword ? (
+              <IoMdEye
+                size={22}
+                className="input-icon right-5 left-auto cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            ) : (
+              <IoMdEyeOff
+                size={22}
+                className="input-icon right-5 left-auto cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            )}
             {error.password && (
               <p className="text-red-600 text-xs mt-1 pl-5 py-2">
                 {error.password}
@@ -137,13 +158,26 @@ const DeveloperSignup = () => {
           <div className="relative">
             <CiLock size={22} className="input-icon" />
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Confirm Password"
               className="input"
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
             />
+            {showPassword ? (
+              <IoMdEye
+                size={22}
+                className="input-icon right-5 left-auto cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            ) : (
+              <IoMdEyeOff
+                size={22}
+                className="input-icon right-5 left-auto cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            )}
             {error.confirmPassword && (
               <p className="text-red-600 text-xs mt-1 pl-5 py-2">
                 {error.confirmPassword}

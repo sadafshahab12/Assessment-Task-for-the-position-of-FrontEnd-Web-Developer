@@ -23,17 +23,18 @@ function App() {
   return (
     <div className="font-AlbertSans">
       <Toaster
-        position="top-center"
-        duration={3000}
         containerStyle={{
+          position: "top-center",
           top: "80px",
           zIndex: 9999,
         }}
+        duration={3000}
         reverseOrder={false}
         toastOptions={{
           style: {
             background: "#4caf50",
             color: "#fff",
+            textAlign: "center",
           },
         }}
       />

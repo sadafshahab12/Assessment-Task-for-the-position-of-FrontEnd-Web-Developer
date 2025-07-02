@@ -1,5 +1,8 @@
-import { IoSearchOutline, useNavigate } from "../components/Exports";
+import { IoSearchOutline, useEffect, useNavigate } from "../components/Exports";
 const HomePage = () => {
+  useEffect(() => {
+    document.title = "Home | Connect Dev";
+  }, []);
   const navigate = useNavigate();
   return (
     <section className="bg-gradient-to-t from-secondary to-primary min-h-screen flex flex-col justify-center items-center hero-liquid pt-25 sm:pt-30 md:pt-40 image">

@@ -6,6 +6,7 @@ import {
   Link,
   LuLayoutDashboard,
   Outlet,
+  toast,
   ToolTip,
   useEffect,
   useNavigate,
@@ -29,6 +30,7 @@ const DashboardLayout = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("developerLoggedIn");
+    toast.success("Logout Successfully!");
     navigate("/developer/login");
   };
 

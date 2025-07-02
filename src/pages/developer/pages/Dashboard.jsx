@@ -7,6 +7,9 @@ import {
 } from "../../../components/Exports";
 
 const Dashboard = () => {
+  useEffect(() => {
+    document.title = "Dashboard | Connect Dev";
+  }, []);
   const [titleCase, setTitleCase] = useState("");
   const developer = JSON.parse(localStorage.getItem("developerLoggedIn")) || {};
   useEffect(() => {
