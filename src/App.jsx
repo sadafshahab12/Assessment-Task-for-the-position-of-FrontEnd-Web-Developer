@@ -35,6 +35,7 @@ function App() {
             background: "#4caf50",
             color: "#fff",
             textAlign: "center",
+            marginTop: "50px",
           },
         }}
       />
