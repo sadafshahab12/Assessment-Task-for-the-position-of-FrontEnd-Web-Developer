@@ -3,11 +3,11 @@ import { ToolTip, useNavigate } from "../components/Exports";
 const GetStarted = () => {
   const navigate = useNavigate();
   return (
-    <section className="min-h-screen bg-primary py-40 sm:py-50">
+    <section className="min-h-screen bg-primary py-40 sm:py-50 get-started-bg">
       <div className=" space-y-12 px-6">
         <div className="text-center space-y-6">
           <h1 className="get-started-H1 space-y-4">
-            <span className="block text-2xl font-medium bg-slate-900 text-secondary p-2 w-max mx-auto">
+            <span className="block text-2xl font-medium p-2 w-max mx-auto">
               Every Great Story
             </span>{" "}
             <span>Begins With a Choice</span>
@@ -20,7 +20,7 @@ const GetStarted = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-10 sm:pt-20 max-w-6xl mx-auto">
           {/* Developer Card */}
-          <div className="relative group border rounded-lg bg-white p-6 shadow-md flex flex-col items-center gap-4 cursor-pointer transition-transform hover:scale-[1.02]">
+          <div className="relative group border rounded-lg bg-primary p-6 shadow-md flex flex-col items-center gap-4 cursor-pointer transition-transform hover:scale-[1.02] card">
             <img
               src="/developer1.png"
               alt="Developer"

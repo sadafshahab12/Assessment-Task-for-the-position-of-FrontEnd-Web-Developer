@@ -18,14 +18,14 @@ const HomePage = () => {
           <input
             type="text"
             placeholder="Search for developers..."
-            className="w-full h-12 p-4 border border-gray-300 rounded-full block mx-auto outline-none focus:ring-2 focus:ring-primary transition-all ease-in duration-200 "
+            className="w-full h-12 p-4 border border-secondary rounded-full block mx-auto outline-none focus:ring-2 focus:ring-primary transition-all ease-in duration-200 text-secondary placeholder:text-secondary "
           />
           <IoSearchOutline
-            className="absolute top-3 right-4 cursor-pointer text-white"
+            className="absolute top-3 right-4 cursor-pointer text-secondary"
             size={22}
           />
         </div>
-        <p className="text-center text-sm sm:text-lg text-slate-700  ">
+        <p className="text-center text-sm sm:text-lg text-slate-800  ">
           Discover talent, collaborate on groundbreaking projects, and grow your
           skills—all in one place.
         </p>
