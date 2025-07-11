@@ -33,10 +33,72 @@ export const register = async (req, res) => {
     });
     await user.save();
 
-    //generate token 
-
-    const token = jwt.sign({id : user._id }, )
+    //generate token
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "2d",
+    });
+    // added token in cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === " production" ? "none" : "strict",
+      maxAge: 2 * 24 * 60 * 60 * 1000,
+    });
+    //local env we use strict in same site // when deploy in live server we add none
+    //maxAge = cookie expiry time in milliseconds
+    return res.json({ success: true, message: "User created  Successfully" });
   } catch (error) {
     res.json({ success: false, message: error.message });
   }
 };
+
+export const login = async (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    return res.json({
+      success: false,
+      message: "Email and password are required",
+    });
+  }
+
+  //when email and password have
+  try {
+    const user = await userModel.findOne({ email });
+    if (!user) {
+      return res.json({ success: false, message: "Invalid Email" });
+    }
+    const isValidPassword = await bcrypt.compare(password, user.password); //first req.body password , second stored in mongodb
+    if (!isValidPassword) {
+      return res.json({ success: false, message: "Invalid Password" });
+    }
+
+    // password match ? // generate token // execute
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "2d",
+    });
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      maxAge: 2 * 24 * 60 * 60 * 1000,
+    });
+
+    return res.json({ success: true, message: "User Logged in  Successfully" });
+  } catch (error) {
+    return res.json({ success: false, message: error.message });
+  }
+};
+
+export const logout = async (req, res) => {
+  try {
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+    });
+    return res.json({ success: true, message: "Logged Out!" });
+  } catch (error) {
+    return res.json({ success: false, message: error.message });
+  }
+};
+
