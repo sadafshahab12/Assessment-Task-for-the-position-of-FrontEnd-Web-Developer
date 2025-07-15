@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import userModel from "../models/UserModel.js";
+import transporter from "../config/nodemailer.js";
 
 export const register = async (req, res) => {
   const { name, email, password, techStack, linkedinUrl, githubUrl } = req.body;
@@ -46,6 +47,14 @@ export const register = async (req, res) => {
     });
     //local env we use strict in same site // when deploy in live server we add none
     //maxAge = cookie expiry time in milliseconds
+    //sendinf email for welcome
+    const mailOptions = {
+      from: process.env.SENDER_MAIL,
+      to: email,
+      subject: "Welcome to Connect Dev.",
+      text: `Hi ${name} , Welcome to Connect Dev. Your account has been created with email id: ${email}`,
+    };
+    await transporter.sendMail(mailOptions);
     return res.json({ success: true, message: "User created  Successfully" });
   } catch (error) {
     res.json({ success: false, message: error.message });
@@ -101,4 +110,3 @@ export const logout = async (req, res) => {
     return res.json({ success: false, message: error.message });
   }
 };
-
