@@ -21,16 +21,17 @@ const userSchema = new mongoose.Schema({
   linkedinUrl: {
     type: String,
     required: true,
+     match: [/^https:\/\/(www\.)?linkedin\.com\/.*$/, 'Invalid LinkedIn URL'],
   },
   githubUrl: {
     type: String,
     required: true,
   },
-  verifyOTP: {
+  verifyOtp: {
     type: String,
     default: "",
   },
-  verifyOTRExpireAt: {
+  verifyOtpExpireAt: {
     type: Number,
     default: 0,
   },
@@ -42,7 +43,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-  resetOTRExpireAt: {
+  resetOtpExpireAt: {
     type: Number,
     default: 0,
   },
